@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS styles */
+        .student-details {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .student-info-card {
+            border: 1px solid #dcdcdc;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .student-info-card h5 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .laptop-card {
+            border: 1px solid #dcdcdc;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 15px;
+        }
+
+        .laptop-model {
+            border: 1px solid #dcdcdc;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="student-details">
+            <h1 class="text-center">Student Details</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="student-info-card">
+                        <h5 class="text-primary">Student Information</h5>
+                        <p><strong>ID:</strong> <span th:text="${student.id}"></span></p>
+                        <p><strong>Name:</strong> <span th:text="${student.name}"></span></p>
+                        <p><strong>Phone:</strong> <span th:text="${student.phone}"></span></p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <p><strong>Laptops:</strong></p>
+            <div th:each="laptop : ${student.laptops}">
+                <div class="laptop-card">
+                    <h5 class="text-success" th:text="${laptop.lname}"></h5>
+                    <div th:each="model : ${laptop.laptopModels}">
+                        <div class="laptop-model">
+                            <p><strong>Model ID:</strong> <span th:text="${model.lid}"></span></p>
+                            <p><strong>Model Name:</strong> <span th:text="${model.m_name}"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
